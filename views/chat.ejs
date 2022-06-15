@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./stylesheets/style.css">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div id="popup">
+        <div id="small">
+            <!-- sab online -->
+        </div>
+    </div>
+    <div id="main">
+        <div id="nav">
+            <div id="left">Lets talk</div>
+            <div id="middle"><span></span> is typing...</div>
+            <div id="right">Online users : <span>0</span>
+            </div>
+        </div>
+        <div id="message">
+            <!-- message paste here -->
+        </div>
+        <div id="text">
+            <textarea name="text" id="txtarea"></textarea>
+            <button id="send">Send message</button>
+        </div>
+    </div>
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+        var socket = io();
+        var overlay = document.querySelector("#overlay");
+        var send = document.querySelector("#send");
+        var textarea = document.querySelector("#txtarea");
+        var focuss = textarea.focus();
+        var message = document.querySelector("#message");
+        var online = document.querySelector("#right");
+        var onlinee = document.querySelector("#right span");
+        var popup = document.querySelector("#popup");
+        var small = document.querySelector("#small");
+        var middle = document.querySelector("#middle")
+        var middlespan = document.querySelector("#middle span");
+
+        // sending username and message to frontend and backend
+        function sendMessage() {
+            if (textarea.value) {
+                var obj = {
+                    alltext: textarea.value,
+                    username: "<%=username%>",
+                    date: datee(),
+                }
+                show(obj, 'right');
+                socket.emit('text', obj)
+            }
+            console.log("value", textarea.value)
+        }
+
+        // function to calculate date
+        function datee() {
+            var date = new Date();
+            var hour = date.getHours();
+            var hr = hour % 12;
+            hr = hr ? hr : 12;
+            var minutes = date.getMinutes();
+            minutes = minutes >= 10 ? minutes : '0' + minutes;
+            var ampm = hour >= 12 ? 'pm' : 'am';
+            return `${hr}:${minutes} ${ampm}`
+        }
+
+        // LISTENING TO THE EVENTS
+        send.addEventListener('click', () => {
+            if (textarea.value) {
+                sendMessage();
+            }
+        })
+
+        window.addEventListener('keyup', (dets) => {
+            if (dets.keyCode === 13) {
+                if (textarea.value) {
+                    sendMessage();
+                }
+            }
+        })
+
+        online.addEventListener('click', () => {
+            popup.style.display = "initial"
+
+        })
+
+        popup.addEventListener('click', () => {
+            popup.style.display = "none";
+        })
+
+        textarea.addEventListener('input', (all) => {
+            socket.emit('typing', "<%=username%>");
+        })
+
+        // reply typing
+        socket.on('replytyping', (nam) => {
+            middlespan.innerHTML = nam;
+            setInterval(() => {
+                middle.style.display = "none";
+                middlespan.innerHTML = nam;
+            }, 4000)
+            middle.style.display = "initial";
+        })
+
+        // reply socket
+        socket.on('reply', (all) => {
+            show(all, 'left')
+        })
+
+        // names of online users
+        socket.on('naamreply', (all) => {
+            var clutter = "";
+            all.forEach((one) => {
+                clutter += `<div class="one">
+                <div id="leftt">${one}</div>
+                <div id="rightt">Online</div>
+            </div>
+            <hr>`
+            })
+            small.innerHTML = clutter;
+        })
+
+        // online users length
+        socket.on('ids', (all) => {
+            onlinee.textContent = all.length;
+        })
+
+        // socket emit
+        socket.emit('naam', "<%=username%>")
+
+        // Showing message to the user
+        function show(mess, type) {
+            var messagediv = document.createElement('div');
+            var className = type;
+            messagediv.classList.add(className, 'msg');
+
+
+            var c = `<div><div id="p">${mess.username}: ${mess.date}</div>
+            ${mess.alltext}<div id="triangle"></div></div>`
+
+            messagediv.innerHTML = c;
+            message.appendChild(messagediv)
+            textarea.value = "";
+            message.scrollTop = message.scrollHeight;
+        }
+    </script>
+</body>
+
+</html>
