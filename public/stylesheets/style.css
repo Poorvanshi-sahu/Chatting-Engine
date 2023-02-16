@@ -1,194 +1,223 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-size: 1rem;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-size: 1rem;
 }
 
 html,
 body {
-    height: 100%;
-    width: 100%;
-    font-size: 15px;
+  height: 100%;
+  width: 100%;
+  font-size: 15px;
 }
 
 #main {
-    min-height: 100vh;
-    width: 100vw;
-    font-size: 1em;
+  min-height: 100vh;
+  width: 100vw;
+  font-size: 1em;
 }
 
 #nav {
-    width: 100vw;
-    min-height: 8vh;
-    background-color: #99999b;
-    padding: 1em;
-    font-size: 1em;
-    display: flex;
-    justify-content: space-between;
-    color: #E7E7EE;
+  width: 100vw;
+  min-height: 8vh;
+  background-color: #c29d7f;
+  padding: 1em;
+  font-size: 1em;
+  display: flex;
+  justify-content: space-between;
+  color: #1e1208;
 }
 
 #left {
-    height: 1.2em;
-    width: 6em;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: 1px solid #E7E7EE;
-    font-size: 1em;
+  height: 1.2em;
+  width: 6em;
+  /* border-radius: 50%; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #e7e7ee;
+  font-size: 1em;
+  color: #2b211a;
 }
 
 #middle {
-    /* background-color: blueviolet; */
-    display: none;
+  /* background-color: blueviolet; */
+  display: none;
 }
 
 #right {
-    height: 1.2em;
-    width: 8em;
-    background-color: rgb(49, 192, 61);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-left: -160px;
+  height: 1.2em;
+  width: 8em;
+  background-color: rgb(49, 192, 61);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: -160px;
 }
 
 #right:hover {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 #message {
-    width: 100vw;
-    height: 72vh;
-    background-color: #f9f9fa;
-    padding: 1em;
-    font-size: 10px;
-    position: relative;
-    overflow-y: auto;
+  width: 100vw;
+  height: 72vh;
+  background-color: #f9f9fa;
+  padding: 1em;
+  font-size: 10px;
+  position: relative;
+  overflow-y: auto;
 }
 
 .msg {
-    min-height: 8vh;
-    width: 30%;
-    background-color: #E7E7EE;
-    border-radius: 10px;
-    position: relative;
-    display: flex;
-    align-items: center;
-    padding: .9em .6em;
-    font-size: 1.5em;
-    margin-bottom: 16px;
+  min-height: 8vh;
+  width: 30%;
+  background-color: #c29d7f;
+  border-radius: 10px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding: 0.9em 0.6em;
+  font-size: 1.5rem;
+  margin-bottom: 16px;
+  color: #1e1208;
+  overflow-wrap: anywhere;
+}
+
+h1 {
+  margin-top: 0.5rem;
 }
 
 .left {
-    /* float: left; */
+  /* float: left; */
 }
 
 .right {
-    margin-left: auto;
+  margin-left: auto;
 }
 
 #triangle {
-    position: absolute;
-    top: 100%;
-    left: 5%;
-    width: 0;
-    height: 0;
-    border-left: 10px solid transparent;
-    border-right: 10px solid transparent;
-    border-top: 10px solid #E7E7EE;
+  position: absolute;
+  top: 100%;
+  left: 5%;
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-top: 10px solid #f9f9fa;
 }
 
 #text {
-    width: 100vw;
-    height: 20vh;
-    /* background-color: cadetblue; */
-    /* padding: 1rem; */
-    font-size: 1em;
-    position: relative;
+  width: 100vw;
+  height: 20vh;
+  /* background-color: cadetblue; */
+  /* padding: 1rem; */
+  font-size: 1em;
+  position: relative;
 }
 
 #txtarea {
-    margin-top: 2px;
-    height: 19vh;
-    width: 100vw;
+  margin-top: 2px;
+  height: 19vh;
+  width: 100vw;
 }
 
 #text button {
-    position: absolute;
-    top: 70%;
-    right: 3%;
-    padding: 3px;
-    background-color: #E7E7EE;
-    border-radius: 10px;
-    border: 1px solid transparent;
-    color: rgb(104, 100, 100);
+  position: absolute;
+  top: 65%;
+  right: 2%;
+  padding: 0.5rem;
+  background-color: #31c03d;
+  border-radius: 5px;
+  border: 1px solid transparent;
+  color: rgb(0, 0, 0);
+  font-weight: 300;
 }
 
 #text button:hover {
-    cursor: pointer;
-    background-color: #767677;
-    color: #fdfdff;
+  cursor: pointer;
+  background-color: #767677;
+  color: #fdfdff;
 }
 
 #overlay {
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 999;
-    background-color: rgb(100, 99, 99);
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+  background-color: #c19c7e;
+  background-position: center;
+}
+
+input,
+button {
+  padding: 1rem;
+  outline: none;
+  border-radius: 5px;
+  border: transparent;
+  letter-spacing: 1px;
+}
+
+button {
+  background-color: #705845;
+  color: white;
+  font-weight: 600;
+}
+
+button:hover {
+  cursor: pointer;
+  background-color: #443a32;
 }
 
 #p {
-    position: absolute;
-    top: 7%;
-    font-size: .7em;
-    color: #99999b;
-    margin-bottom: 150%;
+  position: absolute;
+  top: 7%;
+  font-size: 0.7em;
+  color: #3d3d3d;
+  margin-bottom: 150%;
 }
 
 #popup {
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    /* background-color: rgb(55, 56, 56); */
-    z-index: 99999;
-    display: none;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  /* background-color: rgb(55, 56, 56); */
+  z-index: 99999;
+  display: none;
 }
 
 #small {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    height: 60%;
-    width: 30%;
-    background-color: rgba(129, 128, 126, 0.541);
-    border-radius: 10px;
-    overflow: hidden;
-    overflow-y: auto;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 60%;
+  width: 30%;
+  background-color: #c29d7f;
+  border-radius: 10px;
+  overflow: hidden;
+  overflow-y: auto;
 }
 
 .one {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    height: 20%;
-    padding: 0px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 20%;
+  padding: 0px 20px;
 }
 
 #rightt {
-    color: rgb(3, 122, 13);
+  color: rgb(3, 122, 13);
 }
 
-@media(max-width:400px) {
-    #middle {
-        position: absolute;
-        left: 37%;
-    }
+@media (max-width: 400px) {
+  #middle {
+    position: absolute;
+    left: 37%;
+  }
 }
