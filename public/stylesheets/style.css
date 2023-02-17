@@ -10,6 +10,7 @@ body {
   height: 100%;
   width: 100%;
   font-size: 15px;
+  background-color: #dedee4;
 }
 
 #main {
@@ -46,14 +47,16 @@ body {
   display: none;
 }
 
-#right {
-  height: 1.2em;
-  width: 8em;
-  background-color: rgb(49, 192, 61);
+#right p {
+  height: 30px;
+  width: 8rem;
+  background-color: #20b356;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-left: -160px;
+  margin-left: 460px;
+  color: white;
+  font: 800;
 }
 
 #right:hover {
@@ -63,7 +66,7 @@ body {
 #message {
   width: 100vw;
   height: 72vh;
-  background-color: #f9f9fa;
+  background-color: #dedee4;
   padding: 1em;
   font-size: 10px;
   position: relative;
@@ -82,15 +85,14 @@ body {
   font-size: 1.5rem;
   margin-bottom: 16px;
   color: #1e1208;
+  word-wrap: initial;
   overflow-wrap: anywhere;
 }
 
 h1 {
   margin-top: 0.5rem;
-}
-
-.left {
-  /* float: left; */
+  color: #3b413d;
+  font-family: sans-serif;
 }
 
 .right {
@@ -105,34 +107,45 @@ h1 {
   height: 0;
   border-left: 10px solid transparent;
   border-right: 10px solid transparent;
-  border-top: 10px solid #f9f9fa;
+  border-top: 10px solid #c29d7f;
 }
 
 #text {
-  width: 100vw;
-  height: 20vh;
-  /* background-color: cadetblue; */
-  /* padding: 1rem; */
+  min-height: 10vh;
+  position: absolute;
+  top: 93%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 97%;
   font-size: 1em;
-  position: relative;
+  border-radius: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+}
+
+#text.focus {
+  background: none;
 }
 
 #txtarea {
-  margin-top: 2px;
-  height: 19vh;
-  width: 100vw;
+  height: 3rem;
+  width: 78%;
+  outline: none;
+  border: 1px solid transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.9rem 2rem;
+  overflow-y: hidden;
 }
 
-#text button {
-  position: absolute;
-  top: 65%;
-  right: 2%;
-  padding: 0.5rem;
-  background-color: #31c03d;
-  border-radius: 5px;
-  border: 1px solid transparent;
-  color: rgb(0, 0, 0);
-  font-weight: 300;
+#send {
+  padding: 1rem;
+  width: 20%;
+  border-radius: 50px;
+  background-color: #20b356;
 }
 
 #text button:hover {
@@ -173,12 +186,23 @@ button:hover {
   background-color: #443a32;
 }
 
+#msgbox {
+  display: flex;
+  flex-direction: column;
+}
+
 #p {
+  height: 20px;
   position: absolute;
   top: 7%;
   font-size: 0.7em;
-  color: #3d3d3d;
+  color: #5c5b5b;
   margin-bottom: 150%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-transform: capitalize;
+  font-weight: 400;
 }
 
 #popup {
@@ -201,6 +225,7 @@ button:hover {
   border-radius: 10px;
   overflow: hidden;
   overflow-y: auto;
+  text-transform: capitalize;
 }
 
 .one {

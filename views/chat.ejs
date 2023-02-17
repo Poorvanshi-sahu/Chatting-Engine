@@ -18,14 +18,16 @@
       <div id="nav">
         <div id="left">Lets talk</div>
         <div id="middle"><span></span> is typing...</div>
-        <div id="right">Online users : <span>0</span></div>
+        <div id="right">
+          <p>Online users : <span>0</span></p>
+        </div>
       </div>
       <div id="message">
         <!-- message paste here -->
       </div>
       <div id="text">
         <textarea name="text" id="txtarea"></textarea>
-        <button id="send">Send message</button>
+        <button id="send">Send</button>
       </div>
     </div>
     <script src="/socket.io/socket.io.js"></script>
@@ -138,7 +140,7 @@
         var className = type;
         messagediv.classList.add(className, "msg");
 
-        var c = `<div><div id="p">${mess.username}: ${mess.date}</div>
+        var c = `<div id="msgbox"><div id="p">${mess.username} : ${mess.date}</div>
             <h1>${mess.alltext}</h1><div id="triangle"></div></div>`;
 
         messagediv.innerHTML = c;
